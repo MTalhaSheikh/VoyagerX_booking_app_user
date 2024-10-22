@@ -129,3 +129,106 @@ Widget viewAllRow(void Function()? onTap,String title){
     ),
   );
 }
+
+PreferredSizeWidget appBar(void Function()? onTap,String title){
+  return AppBar(
+    surfaceTintColor: whiteColor,
+    backgroundColor: whiteColor,
+    elevation: 0,
+    centerTitle: true,
+    leading: InkWell(
+      onTap: onTap,
+      child: Icon(
+        Icons.arrow_back_ios,color: blackDefaultColor,size: 15,
+      ),
+    ),
+    title: Text(
+      title,
+      style: GoogleFonts.nunito(
+        color: blackDefaultColor,
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+      ),
+    ),
+  );
+}
+
+Widget travelCitiesWidget(String fromCity,toCity){
+  return Container(
+    height: 25,
+    width: 95,
+    decoration: BoxDecoration(
+      color: mainColor,
+      borderRadius: BorderRadius.circular(2),
+    ),
+    child: Row(
+      mainAxisAlignment:
+      MainAxisAlignment.spaceEvenly,
+      children: [
+        Text(
+          fromCity,
+          style: GoogleFonts.nunito(
+            color: whiteColor,
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        Image.asset(
+          'assets/images/arrow_forward.png',
+          width: 20,
+        ),
+        Text(
+          toCity,
+          style: GoogleFonts.nunito(
+            color: whiteColor,
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+
+Widget additionalThingsWidget(String imagePath, String title) {
+  return Row(
+    children: [
+      Image.asset(
+        imagePath,
+        height: 12,
+        width: 12,
+      ),
+      SizedBox(
+        width: 5,
+      ),
+      Text(
+        title,
+        style: GoogleFonts.nunito(
+            color: textGreyColorTwo,
+            fontWeight: FontWeight.w600,
+            fontSize: 8),
+      )
+    ],
+  );
+}
+
+Widget selectedSeatContainer(String seatNumber){
+  return Container(
+    decoration: BoxDecoration(
+      color: mainColor,
+      borderRadius: BorderRadius.circular(3),
+    ),
+    child: Padding(
+      padding:  EdgeInsets.symmetric(vertical: 5,horizontal: 10),
+      child: Text(
+        seatNumber,
+        style: GoogleFonts.nunito(
+          color: whiteColor,
+          fontWeight: FontWeight.w500,
+          fontSize: 12,
+        ),
+      ),
+    ),
+  );
+}
