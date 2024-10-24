@@ -232,3 +232,66 @@ Widget selectedSeatContainer(String seatNumber){
     ),
   );
 }
+
+Widget textFieldWidget(String label,String hintText,bool obscureText){
+  return Container(
+    height: 47,
+    child: TextFormField(
+      obscureText: obscureText,
+      style: GoogleFonts.nunito(),
+      decoration: InputDecoration(
+        hintStyle: GoogleFonts.nunito(),
+        labelText: label,
+        labelStyle: GoogleFonts.nunito(color: blackDefaultColor),
+        hintText: hintText,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            color: bgGreyColor,
+            width: 1,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            color: blackDefaultColor,
+            width: 1,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            color: bgGreyColor,
+            width: 1,
+          ),
+        ),
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 15,
+        ), //
+      ),
+    ),
+  );
+}
+
+Widget appButton(String title){
+  return Container(
+    height: 48,
+    width: double.infinity,
+    decoration: BoxDecoration(
+      color: mainColor,
+      borderRadius: BorderRadius.circular(8),
+    ),
+    child: Center(
+      child: Text(
+        title,
+        style: GoogleFonts.nunito(
+          color: whiteColor,
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+
+        ),
+      ),
+    ),
+  );
+}

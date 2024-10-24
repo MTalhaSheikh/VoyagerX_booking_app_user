@@ -76,7 +76,9 @@ class ProfilePage extends StatelessWidget {
               color: textGreyColorTwo,
             ),
             _reuseableRow(
-              () {},
+              () {
+                showLogoutDialog(context);
+              },
               Icons.info_outline,
               'Logout',
               redColor,
@@ -129,4 +131,63 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
+  void showLogoutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          surfaceTintColor: whiteColor,
+          backgroundColor: whiteColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(height: 20,),
+                CircleAvatar(
+                  radius: 40,
+                  backgroundColor: bgGreyColor,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(
+                      Icons.logout,
+                      size: 50,
+                      color: mainColor,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 40),
+                Text(
+                  'Are you sure to log out of your account?',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.nunito(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+                SizedBox(height: 50),
+               Padding(
+                 padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.1),
+                 child: appButton('Logout'),
+               ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
 }
